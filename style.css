@@ -1,0 +1,61 @@
+body {
+    text-align: center;
+    margin: 0;
+}
+h1 {
+
+}
+
+.header {
+    padding: 5vh;
+    
+    background-color: rgb(177, 136, 109);
+}
+.header p {
+    font-size: 20px;
+}
+.add-book {
+
+}
+.footer {
+    position: fixed;
+    background-color: gray;
+    bottom: 0%;
+    width: 100%;
+}
+.modal {
+    background-color: rgba(128, 128, 128, 0.753);
+    min-height: 100%;
+    width: 100%;
+    position: fixed;
+    display: none;
+}
+.modal .container {
+    justify-self: center;
+    margin: auto;
+    padding: 30px;
+    background-color: gray;
+}
+.formButtons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+form div {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+input {
+    border-radius: 5px;
+    border: none;
+}
+
+
+
+@media (max-width: 600px) {
+    .header {
+        margin-top: 20px;
+    }
+}
