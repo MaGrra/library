@@ -15,20 +15,23 @@
             <h2>Please fill in the information about the book</h1>
             <form action="">
                 <div>
-                    <label for="bookTitle">Title</label>
-                    <input type="text" id="bookTitle">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
                 </div>
+                <span class="error"></span>
                 <div>
                     <label for="author">Author</label>
-                    <input type="text" id="author">
+                    <input type="text" id="author" name="author" required>
                 </div>
+                <span class="error"></span>
                 <div>
                     <label for="pages">Number of pages</label>
-                    <input type="number" id="pages">
+                    <input type="number" id="pages" name="pages" required>
                 </div>
+                <span class="error"></span>
                 <div>
                     <label for="isRead">Have you read it?</label>
-                    <input type="checkbox" id="isRead">
+                    <input type="checkbox" id="isRead" name="isRead">
                 </div>
                 <div class="formButtons">
                     <button class="cancel" type="button">Cancel</button>
