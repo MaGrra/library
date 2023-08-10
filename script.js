@@ -20,9 +20,6 @@ function Book(title, author, pages, isRead) {
     }
 }
 
-addBookToLibrary();
-console.log(myLibrary);
-
 const main = document.querySelector('.main');
 const addBook = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
@@ -48,16 +45,42 @@ function showCards() {
     main.appendChild(card)
 }
 
+
 function addBookToLibrary() {
-    myLibrary.push(new Book('Harry Potter', 'J.K.Rowling', 450, false));
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const isRead = document.getElementById("isRead").value;
+
+    let newBook = new Book(title, author, pages, isRead);
+    myLibrary.push(newBook);
+    console.log(myLibrary);
 }
 
+form.addEventListener('submit', (e) => {
+    if (!title.validity.valid) {
+        textError(title);
+        e.preventDefault();
+    } else if (!author.validity.valid) {
+        textError(author)
+        e.preventDefault();
+    } else if (!pages.validity.valid) {
+        textError(pages)
+        e.preventDefault();
+    } else {
+        e.preventDefault();
+        addBookToLibrary();
+        e.target.reset();
+        modal.style.display = 'none';
+    }
+})
+
+/*Form validation + error message*/
 const textError = (input) => {
     if (input.validity.valueMissing) {
         input.parentElement.nextElementSibling.textContent = `Book ${input.id} has to be filled`;
     }
 };
-
 title.addEventListener('input', () => {
     if (title.validity.valid) {
         title.parentElement.nextElementSibling.textContent = '';
@@ -65,7 +88,6 @@ title.addEventListener('input', () => {
       textError(title);
     }
 });
-
 author.addEventListener('input', () => {
     if (author.validity.valid) {
         author.parentElement.nextElementSibling.textContent = '';
@@ -73,7 +95,6 @@ author.addEventListener('input', () => {
       textError(author);
     }
 });
-
 pages.addEventListener('input', () => {
     if (pages.validity.valid) {
         pages.parentElement.nextElementSibling.textContent = '';
