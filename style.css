@@ -73,6 +73,14 @@ input {
     border: solid pink 2px;
 }
 
+.read-btn {
+    background-color: red;
+}
+
+.btn-status-read {
+    background-color: green;
+}
+
 
 
 @media (max-width: 600px) {

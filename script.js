@@ -34,6 +34,7 @@ form.addEventListener('submit', (e) => {
 
 addBook.addEventListener('click', (e) => {
     modal.style.display = 'flex';
+    isRead.value = 'false'
 });
 cancel.addEventListener('click', (e) => {
     modal.style.display = 'none';
@@ -63,9 +64,37 @@ function showCard() {
 
     card.appendChild(btnRead)
     btnRead.textContent = "Read"
+    btnRead.classList.add('read-btn')
+    if (isRead.value === "true") {
+        btnRead.classList.toggle('btn-status-read')
+    }
+    // need to edit the actual array thing
+    btnRead.addEventListener('click', () => {
+        console.log(event.target)
+        if (this.isRead.value === "false" ) {
+            btnRead.classList.toggle('btn-status-read')
+            this.isRead.value = "true"
+            console.log(`${this.isRead.value} kjip true`)
+        } else {
+            btnRead.classList.toggle('btn-status-read')
+            this.isRead.value = "false"
+            console.log(`${this.isRead.value} kjip false`)
+        }
+    })
 
     card.appendChild(btnRemove)
     btnRemove.textContent = "Remove"
+    btnRemove.addEventListener('click', () => {
+
+    let target = event.target;
+    let parent = target.parentElement
+    let thing = parent.firstChild.textContent
+        // recreate the array without the parent elements p text, will remove all the books from array but not the screen
+    myLibrary = myLibrary.filter(function(book) { return `"${book.title}"` != thing})
+    bookContainer.removeChild(card)
+
+
+    })
 
 }
 
