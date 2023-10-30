@@ -51,6 +51,28 @@ input {
     color: red;
 }
 
+.book-container {
+    margin: 10px;
+    grid-area: 1/1/10/1 ;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, minmax(200px, 07fr));
+    grid-template-rows: 6em 1fr 1fr 1fr;
+    border: solid red 2px;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    border: solid blue 2px;
+}
+
+.book-card p {
+    margin: 0px;
+    border: solid pink 2px;
+}
+
 
 
 @media (max-width: 600px) {

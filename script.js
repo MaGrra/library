@@ -21,6 +21,7 @@ function Book(title, author, pages, isRead) {
 }
 
 const main = document.querySelector('.main');
+const bookContainer = document.querySelector('.book-container');
 const addBook = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
 const cancel = document.querySelector('.cancel');
@@ -39,11 +40,35 @@ cancel.addEventListener('click', (e) => {
     form.reset();
 });
 
-function showCards() {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    main.appendChild(card)
+function showCard() {
+    const card = document.createElement('div')
+    const title = document.createElement('p')
+    const author = document.createElement('p')
+    const pages = document.createElement('p')
+    const btnRead = document.createElement('button')
+    const btnRemove = document.createElement('button')
+
+
+    bookContainer.appendChild(card)
+    card.classList.add('book-card')
+
+    card.appendChild(title)
+    title.textContent = `"${this.title.value}"`
+
+    card.appendChild(author)
+    author.textContent = this.author.value
+
+    card.appendChild(pages)
+    pages.textContent = this.pages.value
+
+    card.appendChild(btnRead)
+    btnRead.textContent = "Read"
+
+    card.appendChild(btnRemove)
+    btnRemove.textContent = "Remove"
+
 }
+
 
 
 function addBookToLibrary() {
@@ -55,6 +80,7 @@ function addBookToLibrary() {
     let newBook = new Book(title, author, pages, isRead);
     myLibrary.push(newBook);
     console.log(myLibrary);
+    showCard()
 }
 
 form.addEventListener('submit', (e) => {
@@ -72,6 +98,7 @@ form.addEventListener('submit', (e) => {
         addBookToLibrary();
         e.target.reset();
         modal.style.display = 'none';
+        isRead.value = 'false'
     }
 })
 
@@ -100,6 +127,13 @@ pages.addEventListener('input', () => {
         pages.parentElement.nextElementSibling.textContent = '';
     } else {
       textError(pages);
+    }
+});
+isRead.addEventListener('change', () => {
+    if (isRead.value === 'false') {
+        isRead.value = 'true';
+    } else {
+        isRead.value = "false";
     }
 });
 
