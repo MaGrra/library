@@ -84,6 +84,7 @@ function showCard() {
 
     card.appendChild(btnRemove)
     btnRemove.textContent = "Remove"
+    btnRemove.classList.add('btn-remove')
     btnRemove.addEventListener('click', () => {
 
     let target = event.target;

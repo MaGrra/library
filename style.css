@@ -53,32 +53,70 @@ input {
 
 .book-container {
     margin: 10px;
+    padding: 10px;
     grid-area: 1/1/10/1 ;
     display: grid;
+    align-content: center;
+    justify-content: center;
     gap: 20px;
-    grid-template-columns: repeat(4, minmax(200px, 07fr));
-    grid-template-rows: 6em 1fr 1fr 1fr;
-    border: solid red 2px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+}
+.add-book {
+    font-weight: 500;
+    font-size: larger;
+    padding: 0.6em;
+    border-radius: 20px;
+    border: none;
 }
 
 .book-card {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     padding-top: 10px;
-    border: solid blue 2px;
+    gap: 7px;
+    border: solid rgb(226, 216, 206) 2px;
+    box-shadow: r;
+    border-radius: 25px;
+    background-color: rgba(226, 216, 206, 0.315);
 }
 
 .book-card p {
     margin: 0px;
-    border: solid pink 2px;
+}
+
+.book-card :first-child {
+    font-weight: 600;
+    font-size: larger;
+}
+
+.book-card :nth-child(3)  {
+    font-size: smaller;
 }
 
 .read-btn {
-    background-color: red;
+    margin-top: 20px;
+    background-color: rgb(245, 126, 126);
+    min-width: 80px;
+    align-self: center;
+    border-radius: 5px;
+    border: none;
+    padding: 2px 10px 2px 10px;
 }
 
 .btn-status-read {
-    background-color: green;
+    background-color: rgb(90, 175, 90);
+}
+
+.btn-remove {
+    margin: 5px;
+    min-width: 80px;
+    align-self: center;
+    border-radius: 5px;
+    border: none;
+    padding: 2px 10px 2px 10px;
+    background-color: rgb(252, 203, 113);
+    justify-self: flex-end;
 }
 
 
